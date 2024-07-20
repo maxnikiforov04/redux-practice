@@ -13,10 +13,18 @@ const initialState: UserState = {
 	error:'string',
 	count:0
 }
-export const userSlice = createSlice<UserState>({
+
+	export const userSlice = createSlice({
 	name:'user',
 	initialState,
 	reducers:{
+		addUser:(state,action:PayloadAction<iUser>) => {
+			state.users.push({
+				id:state.users.length,
+				name: action.payload.name,
+				email: action.payload.email,
+			})
+		},
 		increment(state,action:PayloadAction<number>){
 			state.count += action.payload;
 		},
@@ -28,5 +36,5 @@ export const userSlice = createSlice<UserState>({
 		}
 	}
 })
-export const { increment, decrement, increase } = userSlice.actions
+export const { increment, decrement, increase,addUser } = userSlice.actions
 export default userSlice.reducer

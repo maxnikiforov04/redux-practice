@@ -10,7 +10,7 @@ import { store } from './app/store.ts'
 import { BatchProd } from './pages/BatchProd'
 import { HomePage } from './pages/HomePage'
 
-const mainStore = store()
+const mainStore = store
 
 const router = createBrowserRouter([
   {
