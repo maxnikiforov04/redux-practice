@@ -25,16 +25,10 @@ const initialState: UserState = {
 				email: action.payload.email,
 			})
 		},
-		increment(state,action:PayloadAction<number>){
-			state.count += action.payload;
-		},
-		decrement(state,action:PayloadAction<number>){
-			state.count -= action.payload;
-		},
-		increase(state){
-			state.count *= 2;
+		deleteUser:(state,action:PayloadAction<number|string>) => {
+			state.users.splice(state.users[action.payload],1)
 		}
 	}
 })
-export const { increment, decrement, increase,addUser } = userSlice.actions
+export const { deleteUser, addUser } = userSlice.actions
 export default userSlice.reducer
